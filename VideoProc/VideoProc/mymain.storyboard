@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OOX-8u-Kwl">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="kzv-Ld-xez">
+            <objects>
+                <viewController id="Qg3-77-AsH" customClass="RZViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N5u-yt-c3L"/>
+                        <viewControllerLayoutGuide type="bottom" id="rkP-Y8-s8W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7NR-W1-wiR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-qj-7NK">
+                                <rect key="frame" x="10" y="20" width="300" height="475"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Urd-EW-XT6">
+                                <rect key="frame" x="-10" y="507" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Start capture" id="DUd-RC-bMT">
+                                        <connections>
+                                            <action selector="startCaptureButtonPressed:" destination="Qg3-77-AsH" id="Gam-Yg-ZQz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Stop capture" id="2jP-7n-8UU">
+                                        <connections>
+                                            <action selector="stopCaptureButtonPressed:" destination="Qg3-77-AsH" id="JlN-2u-Otb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="jEP-VR-tkV">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9YW-bx-YWR">
+                                            <rect key="frame" x="236" y="6" width="73" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Graph">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="Fa1-MZ-8qm" kind="push" identifier="segue1" id="I8Z-6H-wPB"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="51o-iO-pTb"/>
+                    <connections>
+                        <outlet property="imageView" destination="D3U-qj-7NK" id="NMj-rd-ugK"/>
+                        <outlet property="startCaptureButton" destination="2jP-7n-8UU" id="rif-fO-JdY"/>
+                        <outlet property="stopCaptureButton" destination="2jP-7n-8UU" id="mSx-6d-Auf"/>
+                        <outlet property="toolbar" destination="Urd-EW-XT6" id="Gn5-7s-Snv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KBv-Pt-NrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="611" y="22"/>
+        </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="hIc-TD-d1q">
+            <objects>
+                <viewController id="Fa1-MZ-8qm" customClass="RZGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gsQ-0X-nde"/>
+                        <viewControllerLayoutGuide type="bottom" id="L4Q-Pz-ysy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8z-7z-LPq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4T-8p-W4N">
+                                <rect key="frame" x="0.0" y="20" width="1210" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEh-oL-Fjx" userLabel="Graph-View" customClass="RZGraphView">
+                                        <rect key="frame" x="0.0" y="0.0" width="2100" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="shH-xH-kwv"/>
+                    <connections>
+                        <outlet property="myScrollView" destination="A4T-8p-W4N" id="GnJ-O6-B4n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qm-S7-8Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="16"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ccm-ls-U3o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOX-8u-Kwl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oWP-dO-DJz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qg3-77-AsH" kind="relationship" relationship="rootViewController" id="yHE-Pi-Rf7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fog-2K-yv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="22"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
